@@ -28,9 +28,10 @@ RUN chmod -R 777 storage bootstrap/cache && \
 # Install Laravel dependencies
 RUN composer install --no-dev --optimize-autoloader
 
-ENTRYPOINT ["php", "artisan"]
+#ENTRYPOINT ["php", "artisan"]
 
-CMD ["migrate --force && serve --host=0.0.0.0 --port=8000"]
+CMD ["sh", "-c", "php artisan migrate --force && php artisan serve --host=0.0.0.0 --port=8000"]
+
 
 # Copy and set entrypoint script
 #COPY entrypoint.sh /entrypoint.sh
