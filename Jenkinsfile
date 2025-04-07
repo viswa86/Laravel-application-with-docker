@@ -27,7 +27,7 @@ pipeline {
                     sh """
                         ssh -o StrictHostKeyChecking=no ${REMOTE_USER}@${REMOTE_HOST} '
                             echo "Running docker-compose build and up..."
-                            cd ${REMOTE_DIR} && docker-compose up --build -d
+                            cd ${REMOTE_DIR} && docker-compose down  && docker-compose up --build -d
                         '
                     """
                 }
