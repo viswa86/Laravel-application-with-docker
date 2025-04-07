@@ -30,12 +30,12 @@ RUN composer install --no-dev --optimize-autoloader
 
 #ENTRYPOINT ["php", "artisan"]
 
-CMD ["sh", "-c", "php artisan migrate --force && php artisan serve --host=0.0.0.0 --port=8000"]
+#CMD ["sh", "-c", "php artisan migrate --force && php artisan serve --host=0.0.0.0 --port=8000"]
 
 
 # Copy and set entrypoint script
-#COPY entrypoint.sh /entrypoint.sh
-#RUN chmod +x /entrypoint.sh
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
 
-# Set entrypoint
-#ENTRYPOINT ["/entrypoint.sh"]
+#Set entrypoint
+ENTRYPOINT ["/entrypoint.sh"]
