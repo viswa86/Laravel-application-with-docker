@@ -1,5 +1,6 @@
+#Stage 1
 # Use official PHP image with necessary extensions
-FROM php:8.3-cli
+FROM php:8.3-fpm AS laravel
 
 # Set working directory
 WORKDIR /var/www
@@ -39,3 +40,4 @@ RUN chmod +x /entrypoint.sh
 
 #Set entrypoint
 ENTRYPOINT ["/entrypoint.sh"]
+
